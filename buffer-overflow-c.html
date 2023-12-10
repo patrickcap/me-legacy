@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Buffer Overflow in C</title>
+        <!-- Rubik font, fonts.google.com -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+<body>
+    <div class="container">
+        <div class="brand">
+            <div>PATRICK CAPALDO</div>
+        </div>
+
+        <div class="nav-wrapper">
+            <div class="nav-link-wrapper">
+                <a href="index.html">Home</a>
+            </div>
+
+            <div class="nav-link-wrapper">
+                <a href="about.html">About</a>
+            </div>
+
+            <div class="nav-link-wrapper active-nav-link">
+                <a href="tutorials.html">Tutorials</a>
+            </div>
+
+            <div class="nav-link-wrapper">
+                <a href="projects.html">Projects</a>
+            </div>
+
+            <div class="nav-link-wrapper">
+                <a href="https://www.linkedin.com/in/patrick-capaldo/">LinkedIn</a>
+            </div>
+            
+            <div class="nav-link-wrapper">
+                <a href="https://github.com/patrickcap">GitHub</a>
+            </div>
+        </div>
+
+        <div class="sub-tutorial-main-content">
+            <p>
+                <i>Last updated: 21/07/2021</i>
+            </p>
+        </div>
+
+        <!-- sub-tutorial content -->
+        <div class="content-wrapper">
+            <div class="sub-tutorial-nav-map">
+                <a href="tutorials.html">Tutorials</a> > Buffer Overflow in C
+            </div>
+
+            <div class="sub-tutorial-heading">
+                <h1>Buffer Overflow in C</h1>
+            </div>
+
+            <div class="sub-tutorial-sub-heading">
+                Background<br><br>
+            </div>
+            <div class="sub-tutorial-main-content">
+                The programming language C is commonly referred to as being an "unsafe" language.<br><br>
+                However, in the setting of a learning environment, this "unsafe" nature is the perfect 
+                medium through which students can be taught the nature of the modern machine - although
+                still abstracted from its true behaviour.<br><br>
+                One famous example of the unsafe nature of C is demonstrated through an even more famous
+                cybersecurity exploit - the buffer overflow.<br><br>
+            </div>
+        
+            <div class="sub-tutorial-sub-heading">
+                Buffer Overflow Analogy<br><br>
+            </div>
+            <div class="sub-tutorial-main-content">
+                A buffer overflow can be abstracted with the following example:<br><br>
+                Imagine you have an empty glass and you ask your friend to give you some water - and you also happen
+                to be wearing your favourite wrist watch. Your friend pours the water but accidentally overfills the glass,
+                spilling water all over your hand and your brand new watch. From here, anything could happen.
+                If you're lucky, your watch may have survived; if you're unlucky and water got into the wrong
+                spot, your watch may have died; or maybe the water causes a glitch and your watch starts running backwards.
+                The point is - when the glass overflows, anything might happen.<br><br>
+                The same is true for buffer overflows in programming. Think of the glass as an array, the water as 
+                data being put into the array, and the result of the watch being the response of the program.<br><br>
+                Sounds dangerous right? That's because it is, and there are cetain functions in C that make buffer
+                overflows relatively easy for a beginner programmer to induce. Examples of such functions incldude:
+                gets(), sprintf(), strcpy(), and strcat().<br><br>
+            </div>
+
+            <div class="sub-tutorial-sub-heading">
+                The Stack<br><br>
+            </div>
+            <div class="sub-tutorial-main-content">
+                We will assume that the array is allocated in the stack (hence we will be analysing a stack buffer overflow).
+                The stack begins at higher addresses and grows towards lower addresses; the top of the stack has the highest
+                address (refer to Figure 1).
+            </div>
+            <img src="images/buffer-overflow-c/boc-1.png" alt="" class="sub-tutorial-centre-image" width=30%>
+            <div class="figure-comment">
+                Figure 1: Basic stack structure.
+            </div>
+            <div class="sub-tutorial-main-content">
+                Note that when a function is called on the stack by a "caller", a "callee" stack frame is created for that function.
+                The stack frame consists of the arguments given, the base pointer of the caller function, local variables
+                (arrays, etc...), and the address of the caller base pointer (i.e. where to go once the callee is finished).
+                The stack utilises two main registers to operate: the "stack pointer" (%esp) and the "base pointer" (%ebp) - 
+                where %esp always points to the top of the stack and %ebp points to the frame of the current function (refer 
+                to Figure 2).
+            </div>
+            <img src="images/buffer-overflow-c/boc-2.png" alt="" class="sub-tutorial-centre-image" width=30%>
+            <div class="figure-comment">
+                Figure 2: Basic stack frame structure.
+            </div>    
+            <div class="sub-tutorial-main-content">
+                Knowing this, we can now see how a stack buffer overflow works - also known as "stack smashing".<br><br>
+            </div>
+
+            <div class="sub-tutorial-sub-heading">
+                Stack Buffer Overflow / Stack Smashing<br><br>
+            </div>
+            <div class="sub-tutorial-main-content">
+                Buffer overflow is achieved by writing to more memory than was allocated for a particular variable (usually
+                a character array). By doing this, metadata of the current stack frame will be overwritten and crucially - 
+                there there is a possibility that the return pointer for the caller's stack frame is also overwritten. 
+                If this occurs, once the callee finishes executing, the operating system will not know where to return to
+                since the return address has been corrupted.<br><br>
+                This can be exploited maliciously by deliberately overwriting the return address value to point back into the 
+                buffer that caused the overwrite in the first place (the callee array). Finally, if the attacker filled the array 
+                with malicious code, then once the callee "finishes", the buffer/malicious code will be executed (refer to Figure 3
+                 which displays a buffer overflow caused by a call to get(s)).
+            </div>
+            <img src="images/buffer-overflow-c/boc-3.png" alt="" class="sub-tutorial-centre-image" width=30%>
+            <div class="figure-comment">
+                Figure 3: Stack smashing by overwriting a buffer (array).
+            </div>  
+            <div class="sub-tutorial-main-content">
+                You may be wondering "sure that would work, but how can an attacker even write over the bounds of an array?
+                Wouldn't the program give an error or segmentation fault before?" - which is a valid question. However, this is 
+                where the unsafe nature of C comes in to play.<br><br>
+                Using a function like strcpy() to copy user input into an array will allow for writing over the bounds of the array 
+                since strcpy() will only finish copying until a null character is found. If the attack places this null character 
+                at an index past the bounds of the array - then the array, and hence the callee stack frame, will be successfully 
+                overwritten.<br><br>
+                For example, if the victim allocates a buffer of 200 bytes and copies user input into this buffer using strcpy(), 
+                then the attacker can exploit this by giving an input longer than 200 bytes. The attacker's input will contain 
+                their malicious code for execution later, along with the values that will overwrite the return pointers and 
+                re-direct them back into their buffer/attacker input.<br><br>
+            </div>
+            <div class="sub-tutorial-sub-heading">
+                Protection and Prevention<br><br>
+            </div>
+            <div class="sub-tutorial-main-content">
+                To learn about how to protect against and prevent buffer overflows from occurring, take a look the following page:
+            </div>
+            <div class="sub-tutorial-nav-map">
+                <a href="buffer-overflow-protect.html">Buffer Overflow Protection</a>.
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

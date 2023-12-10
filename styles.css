@@ -1,0 +1,314 @@
+/* MASTER STYLES */
+body    {
+    /* Use "Rubik", if can't, use sans-serif */
+    font-family: "Rubik", sans-serif ;
+    /* allow images later to connect with side of page */
+    margin: 0px ;
+}
+
+/* layouts using grid, navigation bars using flex box */
+.container  {
+    /* container uses grid */
+    display: grid ;
+    /* template columns created using 1fr (fractional unit) */
+    grid-template-columns: 1fr ;
+}
+
+/* figure comment */
+.figure-comment {
+    display: flex ;
+    justify-content: center ;
+    padding-top: 20px ;
+    padding-bottom: 20px ;   
+    font-style: italic ; 
+}
+
+/* circular cropped picture */
+.profile-image-centre   {
+    display: block;
+    padding-top: 10px ;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.brand {
+    top: 0 ;
+    display: flex ;
+    justify-content: center ;
+    align-items: center ;
+    
+    text-align: center ;
+    font-size: 60px ;
+    font-weight: 600 ;
+    padding-top: 20px ;
+    padding-bottom: 20px ;
+    padding-left: 100px ;
+    padding-right: 100px ;    
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* VIDEO STYLES */
+.centre-video {
+    display: block;
+    padding-top: 10px ;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* NAVIGATION STYLES */
+/* navigation bar -> flex box */
+.nav-wrapper    {
+    display: flex ;
+    justify-content: space-evenly ;
+    text-transform: uppercase ;
+    font-size: 0.9em ;
+    padding: 38px ;
+}
+
+.nav-link-wrapper   {
+    height: 22px ;
+    border-bottom: 1px solid transparent ;
+    transition: border-bottom 0.5s ;
+}
+
+.nav-link-wrapper a {
+    /* colour links */
+    color: #8a8a8a ; 
+    font-weight: 700 ;
+    /* remove default html hyperlink underline */
+    text-decoration: none ;
+    transition: color 0.5s ;
+}
+
+/* change styles in hover state */
+.nav-link-wrapper:hover {
+    /* in hover state, change bottom border to black */
+    border-bottom: 1px solid black ;
+}
+
+/* do same as above but for colour */
+.nav-link-wrapper a:hover   {
+    color: black ;
+}
+
+/* static state for navigation bottom border */
+.active-nav-link    {
+    border-bottom: 1px solid black;
+}
+
+/* important to override current color behaviour */
+.active-nav-link a{
+    color:  black !important ;
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* PORTFOLIO STYLES */
+
+.portfolio-items-wrapper    {
+    display: grid ;
+    /* 3 columns, give each one a full-sized column */
+    grid-template-columns: 1fr 1fr 1fr ;
+}
+
+/* allow text and images over other images
+relative required to use "position: absolute" for nested */
+.portfolio-item-wrapper     {
+    position: relative ;
+}
+
+/* cover styling */
+.portfolio-img-background   {
+    height: 350px ;
+    width: 100% ;
+    background-size: cover ;
+    background-position: center ;
+    background-repeat: no-repeat ;
+}
+
+.img-text-wrapper   {
+    position: absolute ;
+    top: 0 ;
+    display: flex ;
+    flex-direction: column ;
+    justify-content: center ;
+    align-items: center ;
+    height: 100% ;
+    text-align: center ;
+    padding-left: 100px ;
+    padding-right: 100px ;
+}
+
+.logo-wrapper img   {
+    width: 50% ;
+    margin-bottom: 20px ;
+}
+
+/* normal state */
+.img-text-wrapper .subtitle   {
+    font-weight: 600 ;
+    transition: 1s;
+    color: transparent ;
+}
+
+/* only for hover state */
+.img-text-wrapper:hover .subtitle   {
+    font-weight: 600 ;
+    color: rgb(18, 192, 12) ;
+}
+
+/* Java will add and remove this class depending on hover */
+.img-darken {
+    transition: 1s ;
+    filter: brightness(0.2) ;
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* ABOUT PAGE STYLES */
+
+.two-column-wrapper {
+    /* container uses grid */
+    display: grid ;
+    /* template columns created using 1fr (fractional unit) */
+    grid-template-columns: 1fr 1fr ;    
+}
+
+/* fit image into its column */
+.profile-image-wrapper img  {
+    width: 100% ;
+}
+
+.profile-content-wrapper    {
+    text-align: justify ;
+    padding-left: 30px ;
+    padding-right: 30px ;
+}
+
+.profile-content-wrapper h1   {
+    color:  rgb(18, 192, 12) ;
+}
+
+/* font: fonts.google.com, Rubik */
+
+/* ------------------------------------------------------------------------------------------ */
+/* LIST TUTORIAL PAGE STYLES */
+.tutorial-heading-wrapper    {
+    display: flex ;
+    top: 0 ;
+    padding-left: 100px ;
+    padding-right: 100px ;
+}
+
+.tutorial-heading-wrapper h1   {
+    color:  rgb(18, 192, 12) ;
+}
+
+.intro-central-para   {
+    top: 0 ;
+    display: flex ;
+    flex-direction: column ;
+    justify-content: center ;
+    align-items: center ;
+    text-align: center ;
+    padding-left: 100px ;
+    padding-right: 100px ;
+}
+
+.tutorial-list  {
+    top: 0 ;
+    display: flex ;
+    
+    padding-left: 150px ;
+    padding-right: 100px ; 
+}
+
+.tutorial-link-wrapper   {
+    height: 22px ;
+    transition: border-bottom 0.5s ;
+}
+
+.tutorial-link-wrapper a {
+    /* colour links */
+    color: #8a8a8a ; 
+    font-weight: 700 ;
+    /* remove default html hyperlink underline */
+    text-decoration: none ;
+    transition: color 0.5s ;
+}
+
+/* do same as above but for colour */
+.tutorial-link-wrapper a:hover   {
+    color: rgb(18, 192, 12) ;
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* SUB-TUTORIAL PAGE STYLES */
+.sub-tutorial-nav-map   {
+    /* count white spaces at start of paragraph text */
+    white-space: pre ;
+    color: grey ;
+    top: 0 ;
+    display: flex ;
+    
+    padding-left: 100px ;
+    padding-right: 100px ;
+}
+
+.sub-tutorial-nav-map a  {
+    color: grey !important ;
+    text-decoration: none;
+}
+
+.sub-tutorial-heading   {
+    color: rgb(18, 192, 12);
+    top: 0 ;
+    display: flex ;
+    
+    padding-left: 100px ;
+    padding-right: 100px ;
+}
+
+.sub-tutorial-sub-heading   {
+    color: black;
+    font-size:  20px ;
+    font-weight:    600;
+    top: 0 ;
+    display: flex ;
+    
+    padding-left: 100px ;
+    padding-right: 100px ;  
+}
+
+.sub-tutorial-main-content  {
+    text-align: justify ;
+    top: 0 ;
+    display: flex ;
+    
+    padding-left: 100px ;
+    padding-right: 100px ;
+}
+
+.sub-tutorial-centre-image    {
+    display: block;
+    padding-top: 20px ;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sub-tutorial-references-heading   {
+    color: grey;
+    top: 0 ;
+    display: flex ;
+    
+    padding-left: 100px ;
+    padding-right: 100px ;
+}
+
+.sub-tutorial-references    {
+    top: 0 ;
+    display: flex ;
+    
+    padding-left: 100px ;
+    padding-right: 100px ;
+}
+

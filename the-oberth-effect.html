@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>The Oberth Effect</title>
+        <!-- Rubik font, fonts.google.com -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async
+                src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+    </head>
+<body>
+    <div class="container">
+        <div class="brand">
+            <div>PATRICK CAPALDO</div>
+        </div>
+
+        <div class="nav-wrapper">
+            <div class="nav-link-wrapper">
+                <a href="index.html">Home</a>
+            </div>
+
+            <div class="nav-link-wrapper">
+                <a href="about.html">About</a>
+            </div>
+
+            <div class="nav-link-wrapper active-nav-link">
+                <a href="tutorials.html">Tutorials</a>
+            </div>
+
+            <div class="nav-link-wrapper">
+                <a href="projects.html">Projects</a>
+            </div>
+
+            <div class="nav-link-wrapper">
+                <a href="https://www.linkedin.com/in/patrick-capaldo/">LinkedIn</a>
+            </div>
+            
+            <div class="nav-link-wrapper">
+                <a href="https://github.com/patrickcap">GitHub</a>
+            </div>
+        </div>
+
+        <div class="sub-tutorial-main-content">
+            <p>
+                <i>Last updated: 11/05/2022</i>
+            </p>
+        </div>
+
+        <!-- sub-tutorial content -->
+        <div class="content-wrapper">
+            <div class="sub-tutorial-nav-map">
+                <a href="tutorials.html">Tutorials</a> > The Oberth Effect
+            </div>
+
+            <div class="sub-tutorial-heading">
+                <h1>The Oberth Effect</h1>
+            </div>
+            <div class="sub-tutorial-sub-heading">
+                Maths
+            </div>
+            <div class="sub-tutorial-main-content">
+                <p>The Oberth effect maximises the efficiency of a rocket burn by considering the instantaneous kinetic energy of the rocket at particular moments during its flight and selecting the most suitable time to burn. This concept can be understood by analysing the equation for the kinetic energy of a body at a given instantaneous moment.
+                \[KE = {1 \over 2} m v^2 \]
+                Now, the change in kinetic energy between two instantaneous moments (e.g., from beginning to the end of a burn) can be expressed.
+                \[\Delta KE = KE_2 - KE_1\]
+                \[ = ({1 \over 2} m_2 v_2^2) - ({1 \over 2} m_1 v_1^2) \]
+                Also assuming that the change in mass of the craft is negligible (i.e., \(m_1 \approx m_2 \approx m \))
+                \[\Delta KE = {1 \over 2} m (v_2^2 - v_1^2) \]
+                Now, taking the value \( {1 \over 2} m \) as an arbitrary scalar, the function above can be graphed in 3D as shown below (credit to math3d.org).
+                </p>
+            </div>
+            <img src="images/oberth/oberth_graph_diagonal.jpg" alt="" class="sub-tutorial-centre-image" width="60%">
+            <img src="images/oberth/oberth_graph_straight.jpg" alt="" class="sub-tutorial-centre-image" width="40%">
+            <div class="sub-tutorial-main-content">
+                <p>As illustrated above, for a constant change of velocity (i.e., constant \( \Delta v = v_2 - v_1 \) where \(v_2 > v_1 \)), the change in kinetic energy is greatest when the individual values of \(v_1\) and \(v_2\) are larger. For example, let the change in velocity be \(\Delta v = 1 {m \over s}\) (assume unit mass of 1 kg). If the initial velocity is 1\({m \over s}\) and the final velocity is 2\({m \over s}\), the change in kinetic energy is 3J. However, if the initial velocity is 2\({m \over s}\) and the final velocity is 3\({m \over s}\), the change in kinetic energy is 5J. This example shows that equal changes in velocity with different starting conditions can produce different changes in kinetic energy (i.e., 3J compared to 5J). That is, a greater change in kinetic energy is possible, using the same change in velocity, when the change in velocity occurs at higher values. In summary, for a fixed amount of rocket fuel (i.e., fixed change in velocity, \(\Delta v\)), a greater change in overall kinetic energy of the rocket can be achieved by beginning the burn at a higher initial velocity.
+                </p>
+            </div>
+            <div class="sub-tutorial-sub-heading">
+                Example
+            </div>
+            <div class="sub-tutorial-main-content">
+                <p>
+                On 25 December, 2021 at 1:20pm ACDT, the James Webb Space Telescope (JWST) launched from French Guiana aboard the Ariane 5 launch vehicle. However, at about T+08m:04s, the rocket and payload began losing altitude as shown in the altitude vs. distance travelled graph below (). By losing altitude, the craft traded some gravitational potential energy for some extra kinetic energy - increasing its speed. Now at a higher initial velocity than it would have been without the energy trade, the rocket began burning its engines for a specific change in velocity. The total kinetic energy increase was more efficient due to the engine burn at higher initial speed (Oberth effect). Utilising the Oberth effect, the Ariane 5 achieved such a fuel efficient payload orbit injection that the JWST now has significantly more propellant than expected to sustain its exploration mission. This extra propellant is expected to extend the lifetime of the JWST far beyond its initially expected 10 years.
+                </p>
+            </div>
+            <img src="images/oberth/jwst_oberth.jpg" alt="" class="sub-tutorial-centre-image" width="40%">
+            <div class="sub-tutorial-main-content">
+                <p></p>
+            </div>
+
+        </div>
+
+
+        <div class="sub-tutorial-references-heading">
+            <h1>References</h1>
+        </div>
+
+        <div class="sub-tutorial-references">
+            <p>NASA (2021) <i>James Webb Space Telescope Launch — Official NASA Broadcast</i> Dec 25, 2021. Available at: https://www.youtube.com/watch?v=7nT7JGZMbtM&t=6710s&ab_channel=NASA (Accessed: Jan 03, 2022). <br> </p>
+        </div>
+
+
+
+    </div>
+</body>
+</html>

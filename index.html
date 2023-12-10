@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Patrick Capaldo</title>
+        <!-- Rubik font, fonts.google.com -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+<body>
+    <div class="container">
+        <div class="brand">
+            <div>PATRICK CAPALDO</div>
+        </div>
+
+        <div class="profile-image-centre">
+            <img src="images/Patrick_London_Cropped_Circle.jpg" alt="" width="150" height="150">
+        </div>
+
+        <div class="nav-wrapper">
+            <div class="nav-link-wrapper active-nav-link">
+                <a href="index.html">Home</a>
+            </div>
+
+            <div class="nav-link-wrapper">
+                <a href="about.html">About</a>
+            </div>
+
+            <div class="nav-link-wrapper">
+                <a href="tutorials.html">Tutorials</a>
+            </div>
+
+            <div class="nav-link-wrapper">
+                <a href="projects.html">Projects</a>
+            </div>
+
+            <div class="nav-link-wrapper">
+                <a href="https://www.linkedin.com/in/patrick-capaldo/">LinkedIn</a>
+            </div>
+
+            <div class="nav-link-wrapper">
+                <a href="https://github.com/patrickcap">GitHub</a>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <!-- master wrapper for portfolio items -->
+            <div class="portfolio-items-wrapper">
+                <!-- individual portfolio items -->
+
+                <!-- C programming -->
+                <div class="portfolio-item-wrapper">
+                    <div class="portfolio-img-background" style="background-image:url(images/home_C.jpg)"></div>
+                    <div class="img-text-wrapper">
+                        <div class="logo-wrapper">
+                            <img src="images/logos/C_logo.png" alt="">
+                        </div>
+                        <div class="subtitle">In-depth understanding of secure programming using C language.</div>
+                    </div>
+                </div>
+
+                <!-- research assisstant -->
+                <div class="portfolio-item-wrapper">
+                    <div class="portfolio-img-background" style="background-image:url(images/Thebarton_Wind_Tunnel.jpg)"></div>
+                    <div class="img-text-wrapper">
+                        <div class="logo-wrapper">
+                            <img src="images/logos/research_logo.png" alt="">
+                        </div>
+                        <div class="subtitle">Research assisstant at the University of Adelaide.</div>
+                    </div>
+                </div>
+
+                <!-- CAD -->
+                <div class="portfolio-item-wrapper">
+                    <div class="portfolio-img-background" style="background-image:url(images/home_CAD.jpg)"></div>
+                    <div class="img-text-wrapper">
+                        <div class="logo-wrapper">
+                            <img src="images/logos/CAD_logo.png" alt="">
+                        </div>
+                        <div class="subtitle">Experience in Autodesk Inventor CAD software.</div>
+                    </div>
+                </div>
+
+                <!-- customer service -->
+                <div class="portfolio-item-wrapper">
+                    <div class="portfolio-img-background" style="background-image:url(images/home_Customer_Service.jpg)"></div>
+                    <div class="img-text-wrapper">
+                        <div class="logo-wrapper">
+                            <img src="images/logos/smiley_logo.png" alt="">
+                        </div>
+                        <div class="subtitle">Passion for always going above and beyond for the customer or client.</div>
+                    </div>
+                </div>
+
+                <!-- Python -->
+                <div class="portfolio-item-wrapper">
+                    <div class="portfolio-img-background" style="background-image:url(images/home_Python.jpg)"></div>
+
+                    <div class="img-text-wrapper">
+                        <div class="logo-wrapper">
+                            <img src="images/logos/Python_logo.png" alt="">
+                        </div>
+                        <div class="subtitle">Use of Python to simulate dynamic systems.</div>
+                    </div>
+                </div>
+
+                <!-- Python -->
+                <div class="portfolio-item-wrapper">
+                    <div class="portfolio-img-background" style="background-image:url(images/home_html_css.jpg)"></div>
+
+                    <div class="img-text-wrapper">
+                        <div class="logo-wrapper">
+                            <img src="images/logos/html_css_logo.png" alt="">
+                        </div>
+                        <div class="subtitle">Experience in creating websites using HTML, CSS and JavaScript.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- Java after page has loaded -->
+<script>
+    // select portfolio items
+    const portfolioItems = document.querySelectorAll('.portfolio-item-wrapper') ;
+    // loop over to listen for event
+    // event = add class (darken image)
+    portfolioItems.forEach(portfolioItem => {
+        // event listener for mouseover (darken)
+        portfolioItem.addEventListener('mouseover', () => {
+            // want portfolio item background node (index=1, found with console.log())
+            portfolioItem.childNodes[1].classList.add('img-darken') ;
+        })
+        
+        // even listener for mouseout (un-darken)
+        portfolioItem.addEventListener('mouseout', () => {
+            // want portfolio item background node (index=1, found with console.log())
+            portfolioItem.childNodes[1].classList.remove('img-darken') ;
+        })        
+
+    })
+</script>
+
+</html>
